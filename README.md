@@ -14,18 +14,12 @@ Client for the Bladenight Android App.
 
 ## Usage
 
-Disable TLS enforcement for Websockets in Firefox:
+By default, Firefox will not initiate a non-TLS web socket connection from an HTTPS page.
+To change this:
 
 * Enter `about:config`
 * Set `network.websocket.allowInsecureFromHTTPS` to `true`
-* Open https://ilvermorny.illusioni.de/app/
-
-## To Do
-
--[*] Make TLS work
--[*] Draw polyline from head to tail
--[*] Geolocation control
--[*] Fullscreen control
+* Access the page
 
 ## Links
 
