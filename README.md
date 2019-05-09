@@ -16,11 +16,35 @@ Web based viewer for the Bladenight App
 ## Websocket connection
 
 The Bladenight server uses either self signed certificates (not trusted by default), or 
-non-encrypted communication. In the later case, Firefox will not initiate a non-TLS web
-socket connection from an HTTPS page. To change this:
+non-encrypted communication.
+
+If you want to use TLS, then you can add a reverse proxy on the server to encrypt the
+communication. With Apache, it would look like this:
+
+```
+<VirtualHost *:14443>
+        ServerName              ...
+        ServerAdmin             ...
+        ErrorLog                ...
+        CustomLog               ...
+        SSLCertificateFile      ...
+        SSLCertificateKeyFile   ...
+
+        RewriteEngine           on
+        RewriteCond             %{HTTP:UPGRADE} websocket [NC]
+        RewriteCond             %{HTTP:CONNECTION} upgrade [NC]
+        RewriteRule             .* ws://localhost:12345%{REQUEST_URI} [P]
+        ProxyPass               / http://localhost:12345/
+        ProxyPassReverse        / http://localhost:12345/
+        ProxyRequests           off
+</VirtualHost>
+```
+
+If you want to use unencrypted Websocket communication, be aware that Firefox will not
+initiate a non-TLS websocket connection from an HTTPS page. To change this (not recommended):
 
 * Enter `about:config`
-* Set `network.websocket.allowInsecureFromHTTPS` to `true`
+* Set `network.websocket.allowInsecureFromHTTPS` to `true` (decreases global security!)
 * Access the page
 
 ## Links
