@@ -1,6 +1,7 @@
-# Bladenigght Live Map
+# Bladenight Web Viewer
 
-Client for the Bladenight Android App.
+Web based viewer for the Bladenight App
+
 
 ## Files
 
@@ -12,10 +13,11 @@ Client for the Bladenight Android App.
 * `leaflet.js` Map library
 * `autobahn.js`	WAMP 1.0 library
 
-## Usage
+## Websocket connection
 
-By default, Firefox will not initiate a non-TLS web socket connection from an HTTPS page.
-To change this:
+The Bladenight server uses either self signed certificates (not trusted by default), or 
+non-encrypted communication. In the later case, Firefox will not initiate a non-TLS web
+socket connection from an HTTPS page. To change this:
 
 * Enter `about:config`
 * Set `network.websocket.allowInsecureFromHTTPS` to `true`
