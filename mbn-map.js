@@ -9,8 +9,9 @@ var start = null // L.marker for start/finish line
 var user  = null
 var bar   = document.getElementById('mbn-bar')
 var msg   = document.getElementById('mbn-msg')
-//var tileUrl  = 'https://ilvermorny.illusioni.de/osm/{s}/{z}/{x}/{y}.png'
-var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+// var tileUrl  = 'https://ilvermorny.illusioni.de/osm/{s}/{z}/{x}/{y}.png'
+// var tileUrl = 'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+var tileUrl = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
 var wampUrl = 'wss://map.k2bladenight.de:18082'
 //var wampUrl = 'wss://ilvermorny.illusioni.de:14443'
 
